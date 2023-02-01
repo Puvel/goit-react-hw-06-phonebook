@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Section } from 'components/section/Section';
 import { ContactForm } from 'components/contactForm/ContactForm';
@@ -9,10 +8,6 @@ import { remove, setFilter } from 'redax/slices';
 export const App = () => {
   const dispatch = useDispatch();
   const { contacts, filter } = useSelector(state => state);
-
-  useEffect(() => {
-    localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, [contacts]);
 
   const filterInput = e => dispatch(setFilter(e.target.value));
 
